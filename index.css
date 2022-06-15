@@ -1,0 +1,73 @@
+
+.box {
+   
+    border: black 1px solid;
+    width: 500px;
+    height: 300px;
+    display: inline-block;
+}
+
+
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.startbutton {
+    width: 30%;
+    height: 80px;
+    box-shadow: 0px 5px 5px #888888;
+    padding:15px;
+    /* set transparent background color */
+    
+    border-radius: 5%;
+   
+    
+    margin-bottom: 80px;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    cursor: all-scroll;
+    margin-left: 35%;
+    color: black;
+
+}
+.Playerbutton {
+    width: 180px;
+    height: 180px;
+    font-size: 70px;
+    font-weight: 400;
+    color : #333;
+    border: black 4px solid;
+    background-color: #f0f0f0;
+    margin: 10px;
+    border-radius: 15%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 150px;
+    position: relative;
+    margin-top: 20px;
+    
+    left: 42%;
+    transform: translateX(-50%);
+   
+
+   
+
+
+}
+
+
+.Playerbutton:hover {
+    background-color: gray;
+    transition: background-color 0.5s linear;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px #888888;
+    padding:15px;
+
+}
+
