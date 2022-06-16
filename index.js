@@ -23,7 +23,7 @@ function createboard() {
       button.id = i + "-" + j;
       buttonid = button.id;
       LabelPlayer(button, buttonid);
-      button.style.animation = "fadeIn 2s";
+      button.style.animation = "fadeIn 3s";
       row.appendChild(button);
     }
 
@@ -57,7 +57,13 @@ function LabelPlayer(button, buttonid) {
     }
      
      var currentPlayer = document.getElementById("currentplayer");
-        currentPlayer.innerHTML = "Current player: " + player;
+     if(player == "X"){
+      currentPlayer.innerHTML = "Current Player: O";
+      }
+      else{
+        currentPlayer.innerHTML = "Current Player: X";
+      }
+
     
     button.disabled = true;
     button.innerHTML = player;
@@ -195,10 +201,11 @@ function highlightWinningButtons(winningButtons) {
 
 function PlayerWin(player,winningButtons,buttons) {
   win = true;
-  var currentPlayer = document.getElementById("currentplayer");
-  currentPlayer.innerHTML = player + " won!";
+
   var resetButton = document.getElementById("resetbutton");
   resetButton.style.display = "block";
+  
+  resetButton.innerHTML = player + "  won! <br> Click to reset";
 
 
   for (var i = 0; i < buttons.length; i++) {
@@ -208,11 +215,12 @@ function PlayerWin(player,winningButtons,buttons) {
 }
 
 function PlayerDraw(player,winningButtons,buttons) {
-  var currentPlayer = document.getElementById("currentplayer");
-  currentPlayer.innerHTML = "Draw!";
+ 
   var resetButton = document.getElementById("resetbutton");
   resetButton.style.display = "block";
+  resetButton.innerHTML = "Draw! <br> Click to reset";
   
+
   
 
   for (var i = 0; i < buttons.length; i++) {
@@ -221,30 +229,21 @@ function PlayerDraw(player,winningButtons,buttons) {
 }
 
 function checkDraw(player) {
+  var resetButton = document.getElementById("resetbutton");
 
-  var button1 = document.getElementById("0-0");
-  var button2 = document.getElementById("0-1");
-  var button3 = document.getElementById("0-2");
-  var button4 = document.getElementById("1-0");
-  var button5 = document.getElementById("1-1");
-  var button6 = document.getElementById("1-2");
-  var button7 = document.getElementById("2-0");
-  var button8 = document.getElementById("2-1");
-  var button9 = document.getElementById("2-2");
+  var elements = document.getElementsByClassName("Playerbutton");
+  var buttons = elements.length;
+  var draw = false;
+  var count = 0;
+  for (var i = 0; i < elements.length; i++) {
+    if (elements[i].innerHTML != "") {
 
-
-  buttons = [button1, button2, button3, button4, button5, button6, button7, button8, button9];
-  checkWin(player,buttons);
-  if (win == false) {
-    var count = 0;
-    for (var i = 0; i < buttons.length; i++) {
-      if (buttons[i].innerHTML != "") {
-        count++;
-      }
+      count++;
     }
-    if (count == 9) {
-      PlayerDraw(player,buttons);
-    }
+  }
+  if (count == 9 && resetButton.style.display == "none") {
+    PlayerDraw(buttons);
+    draw = true;
   }
 }
 
