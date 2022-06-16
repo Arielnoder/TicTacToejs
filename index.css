@@ -5,6 +5,10 @@
     width: 500px;
     height: 300px;
     display: inline-block;
+    /* fade in the box */
+
+
+
 }
 
 
@@ -13,18 +17,15 @@
 h1 {
     text-align: center;
     margin-bottom: 100px;
+
 }
 
 .startbutton {
     width: 30%;
     height: 80px;
     box-shadow: 0px 5px 5px #888888;
-    padding:15px;
-    /* set transparent background color */
-    
+    padding:15px;    
     border-radius: 5%;
-   
-    
     margin-bottom: 80px;
     text-align: center;
     font-size: 30px;
@@ -34,8 +35,38 @@ h1 {
     cursor: all-scroll;
     margin-left: 35%;
     color: black;
+  
 
 }
+.resetbutton {
+ /* make the button a floating popup in the center */
+ position: absolute; top: 500px; right: 500px;
+    
+    transform: translate(-50%, -50%);
+    /* make the button float above all elemnets */
+    z-index: 1;
+    width: 30%;
+    height: 400px;
+    box-shadow: 0px 5px 5px #888888;
+    background-color: lightgreen;
+    padding:15px;
+    animation: fadeIn 1.5s;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 100px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    display: none;
+    cursor: all-scroll;
+    margin-left: 35%;
+    color: black;
+    
+
+
+  
+
+}
+
 .Playerbutton {
     width: 180px;
     height: 180px;
@@ -51,7 +82,13 @@ h1 {
     line-height: 150px;
     position: relative;
     margin-top: 20px;
+
+
+  
+
+   
     
+
     left: 42%;
     transform: translateX(-50%);
    
@@ -68,6 +105,7 @@ h1 {
     cursor: pointer;
     box-shadow: 0px 5px 5px #888888;
     padding:15px;
+   
 
 }
 
