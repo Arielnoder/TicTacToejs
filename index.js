@@ -6,7 +6,8 @@ if (player == 0) {
 else {
   player = "O";
 }
-
+var countWinX = 0;
+var countWinO = 0;
 
 
 function createboard() {
@@ -191,8 +192,8 @@ function checkWin(player) {
 
 function highlightWinningButtons(winningButtons) {
   for (var i = 0; i < winningButtons.length; i++) {
-    winningButtons[i].style.backgroundColor = "lightcoral";
-    winningButtons[i].style.color = "white";
+    winningButtons[i].style.backgroundColor = "cyan";
+    winningButtons[i].style.color = "black";
     winningButtons[i].style.fontSize = "100px";
     winningButtons[i].style.padding = "0px";
 
@@ -202,11 +203,23 @@ function highlightWinningButtons(winningButtons) {
 function PlayerWin(player,winningButtons,buttons) {
   win = true;
 
+
   var resetButton = document.getElementById("resetbutton");
   resetButton.style.display = "block";
   
   resetButton.innerHTML = player + "  won! <br> Click to reset";
 
+if(winningButtons[1].innerHTML == "X" ){
+  countWinX++;
+}
+
+  if(winningButtons[1].innerHTML == "O" ){
+    countWinO++;
+  }
+  var scoreX = document.getElementById("scoreX");
+  var scoreO = document.getElementById("scoreO");
+  scoreO.innerHTML = "O: " + countWinO;
+  scoreX.innerHTML = "X: " + countWinX;
 
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].disabled = true;
